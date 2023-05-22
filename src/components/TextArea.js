@@ -36,12 +36,11 @@ export default function TextArea(props) {
           })
     }
     const sentencewise = ()=>{
-       const previewEl = document.getElementById("preview-el")
-       previewEl.setAttribute('style', 'white-space: pre;');
-       previewText = text.replaceAll(".",".\r\n")
-       previewEl.textContent = previewText
-       props.showAlert("Text displayed in sentence wise, please check the preview", "success")
-        
+        const previewEl = document.getElementById("preview-el")
+        previewEl.setAttribute('style', 'white-space: pre;');
+        previewText = text.replaceAll(".",".\r\n")
+        previewEl.textContent = previewText
+        props.showAlert("Text displayed in sentence wise, please check the preview", "success")
     }
     const handleOnChange = (event)=>{
         setText(event.target.value)
@@ -90,7 +89,7 @@ export default function TextArea(props) {
                     <tr>
                         <th scope="row">*</th>
                         <td>Time to read(in Minutes): </td>
-                        <td>{0.008 * text.split(" ").length}</td>
+                        <td>{text.length > 0 ? 0.008 * text.split(" ").length: 0}</td>
                     </tr>
 
                 </tbody>
